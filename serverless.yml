@@ -1,0 +1,67 @@
+org: yearlingduck
+console: true
+service: aws-lambda-node-prueba
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-west-2
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource:
+        - arn:aws:dynamodb:us-west-2:431433680818:table/TablaPruebas
+
+functions:
+  hello:
+    handler: src/handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+  AgregarDatos:
+    handler: src/AgregarDatos.addDatos
+    events:
+      - httpApi:
+          path: /nuevo
+          method: post
+  listarDatos:
+    handler: src/ListarDatos.ListarDatos
+    events:
+      - httpApi:
+          path: /listar
+          method: get
+  listarDatosUnico:
+    handler: src/ListarDatosUnico.ListarDatoUnico
+    events:
+      - httpApi:
+          path: /listar/{id}
+          method: get
+  ActualizarDatos:
+    handler: src/ActualizarDatos.ActualizaDatos
+    events:
+      - httpApi:
+          path: /Actualizar/{id}
+          method: put
+  EliminarDatos:
+    handler: src/EliminarDatos.EliminarDatos
+    events:
+      - httpApi:
+          path: /eliminar/{id}
+          method: delete
+
+resources:
+  Resources:
+    TablaPruebas:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: TablaPruebas
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
