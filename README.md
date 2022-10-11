@@ -74,7 +74,6 @@ Which should result in response similar to the following:
 }
 ```
 
-
 Alternatively, it is also possible to emulate API Gateway and Lambda locally by using `serverless-offline` plugin. In order to do that, execute the following command:
 
 ```bash
@@ -90,3 +89,12 @@ serverless offline
 ```
 
 To learn more about the capabilities of `serverless-offline`, please refer to its [GitHub repository](https://github.com/dherault/serverless-offline).
+
+## endpoint
+
+GET - https://aohbulmimd.execute-api.us-west-2.amazonaws.com/  
+POST - https://aohbulmimd.execute-api.us-west-2.amazonaws.com/nuevo
+GET - https://aohbulmimd.execute-api.us-west-2.amazonaws.com/listar
+GET - https://aohbulmimd.execute-api.us-west-2.amazonaws.com/listar/{id}
+PUT - https://aohbulmimd.execute-api.us-west-2.amazonaws.com/Actualizar/{id}
+DELETE - https://aohbulmimd.execute-api.us-west-2.amazonaws.com/eliminar/{id}
