@@ -93,8 +93,13 @@ To learn more about the capabilities of `serverless-offline`, please refer to it
 ## endpoint
 
 GET - https://aohbulmimd.execute-api.us-west-2.amazonaws.com/  
+
 POST - https://aohbulmimd.execute-api.us-west-2.amazonaws.com/nuevo
+
 GET - https://aohbulmimd.execute-api.us-west-2.amazonaws.com/listar
+
 GET - https://aohbulmimd.execute-api.us-west-2.amazonaws.com/listar/{id}
+
 PUT - https://aohbulmimd.execute-api.us-west-2.amazonaws.com/Actualizar/{id}
+
 DELETE - https://aohbulmimd.execute-api.us-west-2.amazonaws.com/eliminar/{id}
